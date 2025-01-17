@@ -47,7 +47,12 @@
         "test": "@php artisan test",
         "stan": "vendor/bin/phpstan analyse --memory-limit=-1",
         "lint": "PHP_CS_FIXER_IGNORE_ENV=true vendor/bin/php-cs-fixer fix --dry-run --diff",
-        "lint:fix": "PHP_CS_FIXER_IGNORE_ENV=true vendor/bin/php-cs-fixer fix"
+        "lint:fix": "PHP_CS_FIXER_IGNORE_ENV=true vendor/bin/php-cs-fixer fix",
+        "post-update-cmd": [
+            "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+            "@php artisan ide-helper:generate",
+            "@php artisan ide-helper:meta"
+        ]
     },
     "extra": {
         "laravel": {
